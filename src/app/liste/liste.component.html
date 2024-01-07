@@ -1,0 +1,16 @@
+<h2 appHoverBackground> Movie list </h2>
+
+<form [formGroup]="listForm" (ngSubmit)="addItemToTheList()">
+  <input type="text" formControlName="item">
+  <button type="submit">Add</button>
+</form>
+
+<div *ngFor="let movie of items; let i=index">
+  <li>  Title n° {{ i }} : {{ movie }} </li>
+</div>
+
+<br>
+<div>
+  Counter : {{ counter }}
+  <app-liste-edit [message]="messageFromP" (increment)="incrementCounter()"></app-liste-edit>
+</div>
