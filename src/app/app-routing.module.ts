@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { ListeComponent } from './liste/liste.component';
+import { AuthGuard } from './auth.service';
 
 const routes: Routes = [
   { path : 'accueil', component: AccueilComponent },
-  { path : 'apropos', component: AproposComponent },
+  { path : 'apropos', component: AproposComponent, canActivate: [AuthGuard]},
   { path: 'movie', component: ListeComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full'}
 ];
